@@ -1,0 +1,20 @@
+version: '3.1'
+
+services:
+  db:
+    image: mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: 'root'
+    networks:
+      - ochelari_network
+    volumes:
+      - ./data.sql:/docker-entrypoint-initdb.d/data.sql
+  backend:
+    image: spring-docker
+    ports:
+      - "8080:8080"
+    networks:
+      - ochelari_network
+networks:
+  ochelari_network:
