@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Lista produse</title>
+</head>
+<body>
+
+<table>
+  <h1>Lista produse</h1>
+  <ol>
+    <li th:each="p : ${productList}">
+      <span th:text="${p.category}"></span>
+      <span th:text="${p.brand}"></span>
+      <span th:text="${p.stock}"></span>
+    </li>
+  </ol>
+
+</table>
+
+</body>
+</html>
