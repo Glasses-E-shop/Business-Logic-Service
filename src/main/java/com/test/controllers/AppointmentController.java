@@ -5,8 +5,10 @@ import com.test.entities.Appointment;
 import com.test.exceptions.NotFoundException;
 import com.test.servicies.AppointmentService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
 import java.util.Optional;
@@ -32,6 +34,7 @@ public class AppointmentController {
     @GetMapping(path="/{id}")
     @ResponseBody
     public Optional<Appointment> getById(@PathVariable(name="id") int id) throws NotFoundException {
+
         return this.appointmentService.getById(id);
     }
 
